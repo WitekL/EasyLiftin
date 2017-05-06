@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/trainbuttonn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add trainig"
+        android:onClick="newTraining"/>
+
+    <Button
+        android:id="@+id/exebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add exercise"
+        android:onClick="newExercise"/>
+</LinearLayout>
