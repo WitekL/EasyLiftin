@@ -1,5 +1,6 @@
 package com.example.witol.easyliftin;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -46,5 +47,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+
+    public void addTraining(Trainings training){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TRAININGNAME, training.get_trainingname());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_TRAININGS, null, values);
+        db.close();
+    }
+
+    public void addExercise(Exercises exercise){
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_EXERCISENAME, exercise.get_exercisename());
+        values.put(COLUMN_SETS, exercise.get_sets());
+        values.put(COLUMN_WEIGHT, exercise.get_weight());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_EXERCISES, null, values);
+        db.close();
     }
 }
