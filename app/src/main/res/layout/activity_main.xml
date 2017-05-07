@@ -1,3 +1,45 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- The main content view -->
+    <LinearLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/trainbuttonn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add trainig"
+            android:onClick="newTraining"/>
+
+        <Button
+            android:id="@+id/exebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add exercise"
+            android:onClick="newExercise"/>
+
+    </LinearLayout>
+
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111"/>
+</android.support.v4.widget.DrawerLayout>
+
+
+
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,4 +59,4 @@
         android:layout_height="wrap_content"
         android:text="Add exercise"
         android:onClick="newExercise"/>
-</LinearLayout>
+</LinearLayout>-->

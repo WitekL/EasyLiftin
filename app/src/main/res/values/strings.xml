@@ -4,4 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_new_training">NewTraining</string>
+    <string name="title_activity_new_exercise">NewExercise</string>
+    <string name="AddNewExercise">Add new exercise</string>
+    <string name="AddTo">Add to:</string>
 </resources>
