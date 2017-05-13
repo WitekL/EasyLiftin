@@ -18,10 +18,14 @@ public class MainActivity extends AppCompatActivity {
     private String[] menu = {"New exercise", "New training"};
     private ListView drawerList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         drawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -43,17 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
 
-                //Toast.makeText(getApplicationContext(), "BUDYN TY KUHWOOOOO", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
 
 
-
-
-   /* public void newTraining(View view) {
-        Intent intent = new Intent(getApplicationContext(), NewTraining.class);
-        startActivity(intent);
-    }*/
 
 }

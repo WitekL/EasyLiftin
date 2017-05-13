@@ -9,8 +9,7 @@ public class Trainings {
     private String _trainingname;
 
 
-    public Trainings(int _id, String _trainingname) {
-        this._id = _id;
+    public Trainings(String _trainingname) {
         this._trainingname = _trainingname;
     }
 

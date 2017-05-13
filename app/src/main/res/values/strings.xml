@@ -7,4 +7,6 @@
     <string name="title_activity_new_exercise">NewExercise</string>
     <string name="AddNewExercise">Add new exercise</string>
     <string name="AddTo">Add to:</string>
+    <string name="AddNewTraining">Add new training</string>
+    <string name="TrainingName">Training name</string>
 </resources>

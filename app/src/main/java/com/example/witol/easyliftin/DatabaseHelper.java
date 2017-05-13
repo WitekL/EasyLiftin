@@ -2,8 +2,14 @@ package com.example.witol.easyliftin;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by Witek on 07.05.2017.
@@ -16,26 +22,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_EXERCISES = "Exercises";
     public static final String TABLE_TRAININGS = "Trainings";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_EXERCISENAME = "Exercise name";
-    public static final String COLUMN_SETS = "No. of sets";
+    public static final String COLUMN_EXERCISENAME = "Exercise_name";
+    public static final String COLUMN_SETS = "No_of_sets";
     public static final String COLUMN_WEIGHT = "Weight";
-    public static final String COLUMN_TRAININGNAME = "Training name";
+    public static final String COLUMN_TRAININGNAME = "Training_name";
 
 
-    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String createTrainings = "CREATE TABLE " + TABLE_TRAININGS + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 COLUMN_TRAININGNAME + " TEXT " + ");";
 
         String createExercises = "CREATE TABLE " + TABLE_EXERCISES + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
-                COLUMN_EXERCISENAME + " TEXT " +
-                COLUMN_SETS + " INTEGER " +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
+                COLUMN_EXERCISENAME + " TEXT ," +
+                COLUMN_SETS + " INTEGER ," +
                 COLUMN_WEIGHT + " REAL " + ");";
 
         sqLiteDatabase.execSQL(createTrainings);
@@ -49,8 +55,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // TODO inner join
 
-    public void addTraining(Trainings training){
+
+    public void addTraining(Trainings training) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TRAININGNAME, training.get_trainingname());
         SQLiteDatabase db = getWritableDatabase();
@@ -58,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addExercise(Exercises exercise){
+    public void addExercise(Exercises exercise) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_EXERCISENAME, exercise.get_exercisename());
         values.put(COLUMN_SETS, exercise.get_sets());
@@ -67,4 +75,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_EXERCISES, null, values);
         db.close();
     }
+
 }
+// TODO deleting from the db
+
+

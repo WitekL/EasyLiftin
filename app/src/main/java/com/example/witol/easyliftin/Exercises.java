@@ -8,11 +8,10 @@ public class Exercises {
 
     private int _id;
     private String _exercisename;
-    private String _sets;
-    private String _weight;
+    private int _sets;
+    private float _weight;
 
-    public Exercises(int _id, String _exercisename, String _sets, String _weight) {
-        this._id = _id;
+    public Exercises(String _exercisename, int _sets, float _weight) {
         this._exercisename = _exercisename;
         this._sets = _sets;
         this._weight = _weight;
@@ -26,11 +25,11 @@ public class Exercises {
         return _exercisename;
     }
 
-    public String get_sets() {
+    public int get_sets() {
         return _sets;
     }
 
-    public String get_weight() {
+    public float get_weight() {
         return _weight;
     }
 
@@ -42,11 +41,11 @@ public class Exercises {
         this._exercisename = _exercisename;
     }
 
-    public void set_sets(String _sets) {
+    public void set_sets(int _sets) {
         this._sets = _sets;
     }
 
-    public void set_weight(String _weight) {
+    public void set_weight(float _weight) {
         this._weight = _weight;
     }
 }
