@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //TODO create menu in the appbar and move the add buttons there
+        //TODO populate the drawer with trainings
+        //TODO inner join of tables
 
 
         drawerList = (ListView) findViewById(R.id.left_drawer);
