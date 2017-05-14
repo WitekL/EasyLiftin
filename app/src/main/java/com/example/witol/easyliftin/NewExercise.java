@@ -6,12 +6,16 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import java.util.List;
 
 public class NewExercise extends AppCompatActivity {
 
     DatabaseHelper dbHelper;
+    final Spinner spinner = (Spinner) findViewById(R.id.chooseTraining);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,7 @@ public class NewExercise extends AppCompatActivity {
         final EditText exerName = (EditText) findViewById(R.id.exName);
         final EditText numSeries = (EditText) findViewById(R.id.numSeries);
         final EditText iniWeight = (EditText) findViewById(R.id.iniWeight);
-        final Spinner spinner = (Spinner) findViewById(R.id.chooseTraining);
+
 
         //TODO handle the spinner (populate it with trainings to bind the exercises to trainings)
 
@@ -52,7 +56,13 @@ public class NewExercise extends AppCompatActivity {
     }
 
     private void loadSpinnerData() {
-        //TODO create a method to load data from db to the spinner 
+        //TODO create a method to load data from db to the spinner
+        List<String> trainings = dbHelper.getTrainings();
+
+        ArrayAdapter<String> trainingsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, trainings);
+        trainingsAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+        spinner.setAdapter(trainingsAdapter);
     }
 
 }
