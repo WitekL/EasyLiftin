@@ -42,7 +42,7 @@ public class NewExercise extends AppCompatActivity {
 
                 Snackbar.make(view, "Exercise added!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                //TODO use this fab to add exercises to db and display toast
+                
             }
         });
     }

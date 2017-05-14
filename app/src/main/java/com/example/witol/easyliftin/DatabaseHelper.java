@@ -44,8 +44,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_SETS + " INTEGER ," +
                 COLUMN_WEIGHT + " REAL " + ");";
 
+        String createJunctionTable = "CREATE TABLE junction" +
+                " (training_id INTEGER," +
+                " exercise_id INTEGER," +
+                " PRIMARY KEY (training_id, exercise_id)," +
+                " FOREIGN KEY (training_id) REFERENCES Trainings(_id)," +
+                " FOREIGN KEY (exercise_id) REFERENCES Exercises(_id));";
+
         sqLiteDatabase.execSQL(createTrainings);
         sqLiteDatabase.execSQL(createExercises);
+        sqLiteDatabase.execSQL(createJunctionTable);
 
 
     }
@@ -55,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    // TODO inner join
+
 
 
     public void addTraining(Trainings training) {

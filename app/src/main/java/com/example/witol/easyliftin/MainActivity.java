@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO create menu in the appbar and move the add buttons there
         //TODO populate the drawer with trainings
-        //TODO many to many (junction table)
+        //TODO All 3 tables created. Populate the junction table
+
 
 
         drawerList = (ListView) findViewById(R.id.left_drawer);
