@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class NewExercise extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class NewExercise extends AppCompatActivity {
         final EditText exerName = (EditText) findViewById(R.id.exName);
         final EditText numSeries = (EditText) findViewById(R.id.numSeries);
         final EditText iniWeight = (EditText) findViewById(R.id.iniWeight);
+        final Spinner spinner = (Spinner) findViewById(R.id.chooseTraining);
 
         //TODO handle the spinner (populate it with trainings to bind the exercises to trainings)
 
@@ -35,6 +37,8 @@ public class NewExercise extends AppCompatActivity {
                 int numberOfSeries = Integer.parseInt(numSeries.getText().toString());
                 float initialWeight = Integer.parseInt(iniWeight.getText().toString());
 
+                loadSpinnerData();
+
                 Exercises exercise = new Exercises(exerciseName, numberOfSeries, initialWeight);
                 dbHelper.addExercise(exercise);
 
@@ -42,9 +46,13 @@ public class NewExercise extends AppCompatActivity {
 
                 Snackbar.make(view, "Exercise added!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                
+
             }
         });
+    }
+
+    private void loadSpinnerData() {
+        //TODO create a method to load data from db to the spinner 
     }
 
 }
