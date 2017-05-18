@@ -87,14 +87,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<String> getTrainings() {
         List<String> trainings = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
         String query = "SELECT " + COLUMN_TRAININGNAME + " FROM " + TABLE_TRAININGS;
         Cursor cursor = db.rawQuery(query, null);
 
         if(cursor.moveToFirst()){
             do{
-                trainings.add(cursor.getString(1));
+                trainings.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
 
