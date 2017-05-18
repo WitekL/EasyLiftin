@@ -57,12 +57,15 @@ public class NewExercise extends AppCompatActivity {
 
     private void loadSpinnerData() {
         //TODO create a method to load data from db to the spinner
+
         List<String> trainings = dbHelper.getTrainings();
 
         ArrayAdapter<String> trainingsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, trainings);
         trainingsAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
         spinner.setAdapter(trainingsAdapter);
+
+
     }
 
 }
