@@ -31,7 +31,7 @@ public class NewExercise extends AppCompatActivity {
         final EditText iniWeight = (EditText) findViewById(R.id.iniWeight);
         loadSpinnerData();
 
-        //TODO handle the spinner (populate it with trainings to bind the exercises to trainings)
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -41,12 +41,12 @@ public class NewExercise extends AppCompatActivity {
                 String exerciseName = exerName.getText().toString();
                 int numberOfSeries = Integer.parseInt(numSeries.getText().toString());
                 float initialWeight = Integer.parseInt(iniWeight.getText().toString());
+                String chosenTraining = spinner.getSelectedItem().toString();
 
-                loadSpinnerData();
 
                 Exercises exercise = new Exercises(exerciseName, numberOfSeries, initialWeight);
                 dbHelper.addExercise(exercise);
-
+                dbHelper.junction(chosenTraining, exerciseName);
 
 
                 Snackbar.make(view, "Exercise added!", Snackbar.LENGTH_LONG)
@@ -57,7 +57,7 @@ public class NewExercise extends AppCompatActivity {
     }
 
     private void loadSpinnerData() {
-        
+
 
         List<String> trainings = dbHelper.getTrainings();
 

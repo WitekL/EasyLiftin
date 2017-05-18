@@ -85,6 +85,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void junction(String trainingName, String exerciseName){
+        int trainingId = 0;
+        int exerciseId = 0;
+
+        String trainingQuery = "SELECT _id FROM Trainings WHERE Training_name = '" + trainingName +"';";
+        String exerciseQuery = "SELECT _id FROM Exercises WHERE Exercise_name= '" + exerciseName +"';";
+
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursorTraining = db.rawQuery(trainingQuery, null);
+        Cursor cursorExercise = db.rawQuery(exerciseQuery, null);
+        if(cursorTraining.moveToFirst()) {
+            trainingId = cursorTraining.getInt(0);
+        }
+
+        if(cursorExercise.moveToFirst()){
+            exerciseId = cursorExercise.getInt(0);
+        }
+
+        //String junctQuery = "INSERT INTO junction (training_id, exercise_id) VALUES (" + trainingId + ", " + exerciseId + ");";
+        ContentValues values = new ContentValues();
+        values.put("training_id", trainingId);
+        values.put("exercise_id", exerciseId);
+        db.insert("junction", null, values);
+
+
+    }
+
     public List<String> getTrainings() {
         List<String> trainings = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -103,6 +130,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return trainings;
     }
+
+
 
 }
 // TODO deleting from the db
